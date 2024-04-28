@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        button.submit {
+            background-color: #007bff;
+            margin-top: 0;
+        }
+
+        button:hover {
+            background-color: #9fd5ff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Profile</h1>
+        <form action="#" th:action="@{/update}" th:object="${User}" method="post">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" th:field="*{username}">
+                <label for="password">New Password:</label>
+                <input type="password" id="password" name="password" th:field="*{password}">
+            </div>
+            <button class="submit">Submit</button>
+        </form>
+        <button onclick="goBack()">Back</button>
+        <h3><span th:text="${updateStatus}"></span></h3>
+        <h3>Practice score:&nbsp;&nbsp;<span th:text="${practice_score}"></span></h2>
+        <h3>Puzzle score:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span th:text="${puzzle_score}"></span></h2>
+        <div sec:authorize="hasRole('ROLE_ADMIN')">All User</th>
+            <table border="1" cellpadding="10">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Username</th>
+                        <th>Role:</th>
+                        <th>				
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="user : ${listUser}">
+                        <td th:text="${user.id}">Loan ID</td>
+                        <td th:text="${user.username}">Amount</td>
+                        <td th:text="${user.Role}">Duration</td>
+                        <td>
+                            <a th:href="@{'/edit/' + ${user.username}}">Edit</a>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <a th:href="@{'/delete/' + ${user.id}}">Delete</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</body>
+</html>

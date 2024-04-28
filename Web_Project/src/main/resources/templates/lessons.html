@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>English Grammar</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+    <style>
+        .lesson-card {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items:center;
+            text-align: center;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+            height: 300px; /* Adjust the height as needed */
+        }
+        
+        .lesson-card:hover {
+            transform: scale(1.10);
+        }
+        
+        .lesson-card img {
+            width: 100%;
+            max-width: 200px;
+            max-height: 150px; /* Adjust the maximum height of the image */
+            object-fit:cover;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        
+        .lesson-card h3,
+        .lesson-card p {
+            margin: 0;
+            flex-grow: 1;
+        }
+        
+        .lesson-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+        }
+        
+        .lesson-content img {
+            width: 300px;
+            border-radius: 10px;
+        }
+        
+        .lesson-description {
+            width: calc(100% - 120px);
+            padding-left: 20px;
+        }
+        
+        .back-btn {
+            margin-top: 20px;
+            cursor: pointer;
+            color: blue;
+            text-decoration: underline;
+        }
+        /* Additional CSS for login and sign-up buttons */
+        .login-signup {
+            position: absolute;
+            top: 40px;
+            right: 20px;
+        }
+
+        .login-signup a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin-left: 10px;
+            border-radius: 100px;
+            background-color: rgb(16, 163, 226); /* Green */
+            transition: background-color 0.3s;
+        }
+
+        .login-signup a:hover {
+            background-color: rgb(0, 0, 0);
+        }
+
+        /* Additional CSS for profile icon */
+        .profile-icon {
+            position: absolute;
+            top: 29px;
+            right: 215px; /* Adjust as needed */
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="login-signup">
+        <a href="/signup">Sign Up</a>
+        <a href="/login">Login</a>
+    </div>
+    <!-- Profile Icon -->
+    <div class="profile-icon">
+        <a href="/profile">
+            <img src="/images/Profile_icon.png" alt="Profile" width="40px" height="40px">
+        </a>
+    </div>
+    <img src="/images/logo-website.png" alt="English Grammar Logo" width="125px" height="125px">
+    <h1 style="margin-top: 40px;">
+        English Grammar
+    </h1>
+</header>
+<nav>
+    <a class="p.solid" href="home" > Home</a>
+    <a class="p.solid" href="lesson" >Lessons</a>
+    <a class="p.solid" href="exercise" >Exercise</a>
+    <a class="p.solid" href="contact" >Contact</a>
+    <a class="p.solid" href="aboutus" >About Us</a>
+</nav>
+<main>
+    <div class="lesson-card" id="les1" onclick="showLessonContent('les1')">
+        <img src="/images/image.png" alt="Lesson 1 Image">
+        <h3>Lesson 1: Present Simple Tense</h3>
+        <p>We use the present simple to describe things that are always true...</p>
+    </div>
+    <div class="lesson-card" id="les2" onclick="showLessonContent('les2')">
+        <img src="/images/Con.png" alt="Lesson 2 Image">
+        <h3>Lesson 2: Present Continuous Tense</h3>
+        <p>We use the present continuous to imply that a situation is or may be temporary...</p>
+    </div>
+    <div class="lesson-card" id="les3" onclick="showLessonContent('les3')">
+        <img src="/images/past.png" alt="Lesson 3 Image">
+        <h3>Lesson 3: Past Simple Tense</h3>
+        <p>When we want to indicate that something happened at a specific time in the past...</p>
+    </div>
+    <div class="lesson-card" id="les4" onclick="showLessonContent('les4')">
+        <img src="/images/Present_perfect.png" alt="Lesson 4 Image">
+        <h3>Lesson 4: Present Perfect Tense</h3>
+        <p>We use the present perfect when we talk about something that happened in a period of time up to the present...</p>
+    </div>
+    <div class="lesson-card" id="les5" onclick="showLessonContent('les5')">
+        <img src="/images/past_con.png" alt="Lesson 5 Image">
+        <h3>Lesson 5: Past Continuous Tense</h3>
+        <p>We use the past continuous to talk about a temporary situation that existed at or around a particular time in the past...</p>
+    </div>
+    <div id="lesson-content">
+        <!-- Content for lessons will be dynamically loaded here -->
+    </div>
+    <div id="back-btn" class="back-btn" onclick="showAllLessons()" style="display: none;">Back to All Lessons</div>
+</main>
+<footer>
+    <div class="foot">
+        <h6>Contact:<br>
+            Email: <a href="eng_grammar@gmail.com">eng_grammar@gmail.com</a><br>
+            Tel: +855123456789<br>
+            Address: JW82+CGV Kilometer 6, 278H Street 201R Kroalkor Village, Sangkat, Unnamed Road, Phnom Penh<br>
+            &copy; Copyright 2022, English Grammar 
+        </h6>
+    </div>
+</footer>      
+<script src="/js/lesson.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0" />
+    <title>English Grammar</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+    <style>
+        /* Additional CSS for login and sign-up buttons */
+        .login-signup {
+            position: absolute;
+            top: 40px;
+            right: 20px;
+        }
+
+        .login-signup a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin-left: 10px;
+            border-radius: 100px;
+            background-color: rgb(16, 163, 226);
+            transition: background-color 0.3s;
+        }
+
+        .login-signup a:hover {
+            background-color: rgb(0, 0, 0);
+        }
+
+        /* Additional CSS for profile icon */
+        .profile-icon {
+            position: absolute;
+            top: 29px;
+            right: 215px; /* Adjust as needed */
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="login-signup">
+        <a href="signup">Sign Up</a>
+        <a href="login">Login</a>
+    </div>
+    <!-- Profile Icon -->
+    <div class="profile-icon">
+        <a href="profile">
+            <img src="/images/Profile_icon.png" alt="Profile" width="40px" height="40px">
+        </a>
+    </div>
+    <img src="/images/logo-website.png" alt="English Grammar Logo" width="125px" height="125px">
+    <h1 style="margin-top: 40px;">
+        English Grammar
+    </h1>
+</header>
+<nav>
+    <a class="p.solid" href="home" > Home</a>
+    <a class="p.solid" href="lesson" >Lessons</a>
+    <a class="p.solid" href="exercise" >Exercise</a>
+    <a class="p.solid" href="contact" >Contact</a>
+    <a class="p.solid" href="aboutus" >About Us</a>
+</nav>
+<main>
+<div class="div1">
+    <ul>
+        <li style="font-weight: bold; color: green; margin-bottom: 10px;">TOPIC:</li>
+        <li><a href="lesson#les1" >Lesson 1</a></li>
+        <hr>
+        <li><a href="lesson#les2" >Lesson 2</a></li>
+        <hr>
+        <li><a href="lesson#les3" >Lesson 3</a></li>
+        <hr>
+        <li><a href="lesson#les4" >Lesson 4</a></li>
+        <hr>
+        <li><a href="lesson#les5" >Lesson 5</a></li>
+    </ul>
+</div>
+<div class="div2">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/iSSTv8-2358" 
+    title="YouTube video player" frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+    allowfullscreen></iframe>
+<p class = "pad1">
+    Are you trying to find materials on English grammar ? Well, you arrived at the right place.
+    Here in EngGrammar, you can scroll through many written lessons on the various aspects of Englsih Grammar.
+    Additionally, there are also small quizes for you to test your understanding of the lessons.
+    Solution will be provided at the end of the quiz. Enjoy! 
+</p>
+</div>
+</main>
+<footer>
+    <div class="foot">
+<h6>Contact:<br>
+Email: <a href="eng_grammar@gmail.com">eng_grammar@gmail.com<a><br>
+Tel: +855123456789<br>
+Address: JW82+CGV Kilometer 6, 278H Street 201R Kroalkor Village, Sangkat, Unnamed Road, Phnom Penh<br>
+&copy; Copyright 2022, English Grammar </h6>
+</div>
+</footer>    
+</body>
+</html>

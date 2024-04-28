@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>English Grammar</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+    <style>
+        .exercise-card {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+            height: 300px; /* Fixed height for all exercise cards */
+            overflow: hidden; /* Ensure content doesn't overflow */
+        }
+
+        .exercise-card:hover {
+            transform: scale(1.05);
+        }
+
+        .exercise-card img {
+            width: 100%;
+            max-height: 100%; /* Adjust the maximum height of the image */
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .exercise-card h2 {
+            margin: 0;
+            flex-grow: 1;
+            overflow: hidden; /* Ensure content doesn't overflow */
+        }
+
+        #exercise-form,
+        #puzzle-form {
+            padding: 20px;
+            margin-bottom: 20px;
+            display: none;
+        }
+
+        .back-button {
+            margin-top: 20px;
+            cursor: pointer;
+            color: blue;
+            text-decoration: underline;
+        }
+        /* Additional CSS for login and sign-up buttons */
+        .login-signup {
+            position: absolute;
+            top: 40px;
+            right: 20px;
+        }
+
+        .login-signup a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin-left: 10px;
+            border-radius: 100px;
+            background-color: rgb(16, 163, 226); /* Green */
+            transition: background-color 0.3s;
+        }
+
+        .login-signup a:hover {
+            background-color: rgb(0, 0, 0);
+        }
+        /* Additional CSS for profile icon */
+        .profile-icon {
+            position: absolute;
+            top: 29px;
+            right: 215px; /* Adjust as needed */
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="login-signup">
+        <a href="/signup">Sign Up</a>
+        <a href="/login">Login</a>
+    </div>
+    <!-- Profile Icon -->
+    <div class="profile-icon">
+        <a href="/profile">
+            <img src="/images/Profile_icon.png" alt="Profile" width="40px" height="40px">
+        </a>
+    </div>
+    <img src="/images/logo-website.png" alt="English Grammar Logo" width="125px" height="125px">
+    <h1 style="margin-top: 40px;">
+        English Grammar
+    </h1>
+</header>
+<nav>
+    <a class="p.solid" href="home" > Home</a>
+    <a class="p.solid" href="lesson" >Lessons</a>
+    <a class="p.solid" href="exercise" >Exercise</a>
+    <a class="p.solid" href="contact" >Contact</a>
+    <a class="p.solid" href="aboutus" >About Us</a>
+</nav>
+<main>
+    <div class="div1">
+        <ul>
+            <li style="font-weight: bold; color: green; margin-bottom: 10px;">TOPIC:</li>
+            <li><a href="lesson#les1" >Lesson 1</a></li>
+            <hr>
+            <li><a href="lesson#les2" >Lesson 2</a></li>
+            <hr>
+            <li><a href="lesson#les3" >Lesson 3</a></li>
+            <hr>
+            <li><a href="lesson#les4" >Lesson 4</a></li>
+            <hr>
+            <li><a href="lesson#les5" >Lesson 5</a></li>
+        </ul>
+    </div>
+<div class="pad5">
+    <div class="exercise-card" id="exercise-card" onclick="showExerciseForm()">
+        <img src="/images/multiple_choice.png" alt="Exercise Image">
+        <h2>Practice Exercises</h2>
+    </div>
+    <div class="exercise-card" id="puzzle-card" onclick="showPuzzleForm()">
+        <img src="/images/wordsearch.png" alt="Puzzle Image">
+        <h2>Words Search Puzzle</h2>
+    </div>
+
+    <div id="exercise-form" style="display: none;">
+        <h2 class="pad1">Exercise</h2>
+        <form id="question">
+            <p id="pad1">1. This photograph, ____ I took five years ago, shows the harbour quite well.</p>
+            <input type="radio" name="1" id="1a" value="a">
+            <label for="a">A. who</label><br>
+            <input type="radio" name="1" id="1b" value="b">
+            <label for="b">B. when</label><br>
+            <input type="radio" name="1" id="1c" value="c">
+            <label id="1cc" for="c">C. which</label><br>
+            <input type="radio" name="1" id="1d" value="d">
+            <label id="pad1" for="d">D. what</label><br><br>
+            <p style="width: 275px;">2. The patient ____ by the doctor.</p>
+            <input type="radio" name="2" id="2a" value="a">
+            <label id="pad1" for="a">A. has being examined</label><br>
+            <input type="radio" name="2" id="2b" value="b">
+            <label id="pad1" for="b">B. had examined</label><br>
+            <input type="radio" name="2" id="2c" value="c">
+            <label id="pad1" for="c">C. has examined</label><br>
+            <input type="radio" name="2" id="2d" value="d">
+            <label id="2dd" for="d">D. has been examined</label><br><br>
+            <p style="width: 300px;">3. They haven't drunk anything ____.</p>
+            <input type="radio" name="3" id="3a" value="a">
+            <label id="pad1" for="a">A. since five hours</label><br>
+            <input type="radio" name="3" id="3b" value="b">
+            <label id="3bb" for="b">B. since yersterday morning</label><br>
+            <input type="radio" name="3" id="3c" value="c">
+            <label id="pad1" for="c">C. for five o'clock</label><br>
+            <input type="radio" name="3" id="3d" value="d">
+            <label id="pad1" for="d">D. for yersterday morning</label><br><br>
+            <p style="width: 300px;">4.  John has written a novel and ____ .</p>
+            <input type="radio" name="4" id="4a" value="a">
+            <label id="pad1" for="a">A. so his sister, has</label><br>
+            <input type="radio" name="4" id="4b" value="b">
+            <label id="pad1" for="b">B. so got married his sister</label><br>
+            <input type="radio" name="4" id="4c" value="c">
+            <label id="4cc" for="c">C. so has his sister</label><br>
+            <input type="radio" name="4" id="4d" value="d">
+            <label id="pad1" for="d">D. so did his sister</label><br><br>
+            <p style="width: 365px;">5. Rose didn't do anything yesterday, and ____ .</p>
+            <input type="radio" name="5" id="5a" value="a">
+            <label id="pad1" for="a">A. nor James</label><br>
+            <input type="radio" name="5" id="5b" value="b">
+            <label id="pad1" for="b">B. neither james</label><br>
+            <input type="radio" name="5" id="5c" value="c">
+            <label id="5cc" for="c">C. Jame didn't either</label><br>
+            <input type="radio" name="5" id="5d" value="d">
+            <label id="pad1" for="d">D. James hadn't either</label><br><br>
+            <p style="width: 280px;">6. He ____ less work than his wife.</p>
+            <input type="radio" name="6" id="6a" value="a">
+            <label id="pad1" for="a">A. made</label><br>
+            <input type="radio" name="6" id="6b" value="b">
+            <label id="pad1" for="b">B. made a</label><br>
+            <input type="radio" name="6" id="6c" value="c">
+            <label id="pad1" for="c">C. was</label><br>
+            <input type="radio" name="6" id="6d" value="d">
+            <label id="6dd" for="d">D. did</label><br><br>
+            <p style="width: 330px;">7. Most of my students would rather ____ .</p>
+            <input type="radio" name="7" id="7a" value="a">
+            <label id="7aa" for="a">A. play than study</label><br>
+            <input type="radio" name="7" id="7b" value="b">
+            <label id="pad1" for="b">B. play than studies</label><br>
+            <input type="radio" name="7" id="7c" value="c">
+            <label id="pad1" for="c">C. plays than study</label><br>
+            <input type="radio" name="7" id="7d" value="d">
+            <label for="d">D. to play than to study</label><br><br>
+            <p style="width: 295px;">8. Does anybody know where ____ ?</p>
+            <input type="radio" name="8" id="8a" value="a">
+            <label id="pad1" for="a">A. are they meeting</label><br>
+            <input type="radio" name="8" id="8b" value="b">
+            <label id="pad1" for="b">B. do they meet</label><br>
+            <input type="radio" name="8" id="8c" value="c">
+            <label id="pad1" for="c">C. will they meet</label><br>
+            <input type="radio" name="8" id="8d" value="d">
+            <label id="8dd" for="d">D. they will meet</label><br><br>
+            <p style="width: 250px;">9. I think the roof needs ____ .</p>
+            <input type="radio" name="9" id="9a" value="a">
+            <label id="9aa" for="a">A. mending</label><br>
+            <input type="radio" name="9" id="9b" value="b">
+            <label id="pad1" for="b">B. to mend</label><br>
+            <input type="radio" name="9" id="9c" value="c">
+            <label id="pad1" for="c">C. be mended</label><br>
+            <input type="radio" name="9" id="9d" value="d">
+            <label id="pad1" for="d">D. to be mending</label><br><br>
+            <p style="width: 320px;">10. She had the servant ____ the windows.</p>
+            <input type="radio" name="10" id="10a" value="a">
+            <label id="pad1" for="a">A. to clean</label><br>
+            <input type="radio" name="10" id="10b" value="b">
+            <label id="10bb" for="b">B. clean</label><br>
+            <input type="radio" name="10" id="10c" value="c">
+            <label id="pad1" for="c">C. cleans</label><br>
+            <input type="radio" name="10" id="10d" value="d">
+            <label id="pad1" for="d">D. cleaned</label><br><br>
+            <button type="button" id="submit">Submit</button><br><br>
+            <p id="result"></p>
+            
+            <div class="back-button" onclick="goBack()">Back</div>
+        </form>
+    </div>
+
+    <div id="puzzle-form" style="display: none;">
+        <h2 class="pad1">Search Words Puzzle</h2>
+        <img style="width: 500px; height: 500px;" src="/images/findword.png" alt="image">
+        <label for="answer1">First word: </label>
+        <input type="text" id="answer1" name="answer1" value="a"><br><br>
+        <label for="answer2">Second word: </label>
+        <input type="text" id="answer2" name="answer2" value="b"><br><br>
+        <button type="button" id="submit1">Submit</button>
+        <div class="back-button" onclick="goBack()">Back</div>
+    </div>
+</div>
+</main>
+<footer>
+    <div class="foot">
+        <h6>Contact:<br>
+            Email: <a href="eng_grammar@gmail.com">eng_grammar@gmail.com</a><br>
+            Tel: +855123456789<br>
+            Address: JW82+CGV Kilometer 6, 278H Street 201R Kroalkor Village, Sangkat, Unnamed Road, Phnom Penh<br>
+            &copy; Copyright 2022, English Grammar 
+        </h6>
+    </div>
+</footer>
+<script src="/js/exercise.js"></script>     
+</body>
+</html>
